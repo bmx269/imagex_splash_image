@@ -1,0 +1,50 @@
+<?php
+/**
+ * @file
+ * Code for the ImageX Splash Image & Slideshow feature.
+ */
+
+include_once 'imagex_splash_image.features.inc';
+
+/**
+ * Implements of hook_views_api_alter()
+ *
+ * Adds views templates.
+ */
+function imagex_splash_image_views_api_alter(&$list) {
+
+  $list['views']['template path'] = drupal_get_path('module', 'imagex_splash_image') . '/templates';
+
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+/*function imagex_splash_image_theme($existing, $type, $theme, $path) {
+
+  $themes['views_view__media_asset_splash'] = array(
+    'original hook' => 'views_view',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_views_view',
+      'imagex_splash_image_preprocess_views_view__media_asset_splash',
+    ),
+    'arguments' => array('view_array' => array(), 'view' => NULL),
+  );
+
+  return $themes;
+
+}*/
+
+/**
+ * Views preprocess function.
+ *
+ * Adds default css to splash feature.
+ */
+/*function imagex_splash_image_preprocess_views_view__media_asset_splash(&$variables) {
+
+  $path = drupal_get_path('module', 'imagex_splash_image');
+
+  drupal_add_css($path . '/css/imagex_splash_image.css');
+
+}*/
