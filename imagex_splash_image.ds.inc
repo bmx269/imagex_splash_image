@@ -68,5 +68,7 @@ function imagex_splash_image_ds_layout_settings_info() {
   );
   $export['media_asset|splash|teaser'] = $ds_layout;
 
-  return $export;
+ features_alter_code('ds_layout_settings', $export);
+
+ return $export;
 }
