@@ -8,7 +8,7 @@ projects[image_url_formatter][subdir] = "contrib"
 projects[image_url_formatter][version] = "1.4"
 projects[inline_entity_form][type] = "module"
 projects[inline_entity_form][subdir] = "contrib"
-projects[inline_entity_form][version] = "1.3"
+projects[inline_entity_form][version] = "1.5"
 
 libraries[flexslider][download][type] = "git"
 libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider.git"
