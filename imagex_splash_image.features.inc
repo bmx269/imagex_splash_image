@@ -66,7 +66,7 @@ function imagex_splash_image_eck_bundle_info() {
     ),
   );
 
- features_alter_code('eck_bundle', $items);
+ //features_alter_code('eck_bundle', $items);
 
  return $items;
 }
@@ -99,7 +99,7 @@ function imagex_splash_image_eck_entity_type_info() {
     ),
   );
 
- features_alter_code('eck_entity_type', $items);
+ //features_alter_code('eck_entity_type', $items);
 
  return $items;
 }
@@ -315,7 +315,7 @@ function imagex_splash_image_image_default_styles() {
     ),
   );
 
- features_alter_code('image', $styles);
+ //features_alter_code('image', $styles);
 
  return $styles;
 }

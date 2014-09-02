@@ -38,7 +38,7 @@ function imagex_splash_image_filter_default_formats() {
     ),
   );
 
- features_alter_code('filter', $formats);
+ //features_alter_code('filter', $formats);
 
  return $formats;
 }

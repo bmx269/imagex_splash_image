@@ -262,7 +262,7 @@ function imagex_splash_image_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
- features_alter_code('field_base', $field_bases);
+ //features_alter_code('field_base', $field_bases);
 
  return $field_bases;
 }

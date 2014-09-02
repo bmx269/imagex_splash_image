@@ -166,7 +166,7 @@ function imagex_splash_image_flexslider_default_presets() {
   );
   $export['timeline'] = $preset;
 
- features_alter_code('flexslider_optionset', $export);
+ //features_alter_code('flexslider_optionset', $export);
 
  return $export;
 }

@@ -590,7 +590,7 @@ function imagex_splash_image_field_default_field_instances() {
   t('Testimonial Reference');
   t('This is the text that appears on the splash image.');
 
- features_alter_code('field_instance', $field_instances);
+ //features_alter_code('field_instance', $field_instances);
 
  return $field_instances;
 }

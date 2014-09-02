@@ -499,7 +499,7 @@ function imagex_splash_image_views_default_views() {
   $handler->display->display_options['block_description'] = 'Splash Banner Block';
   $export['media_asset_splash'] = $view;
 
- features_alter_code('views_view', $export);
+ //features_alter_code('views_view', $export);
 
  return $export;
 }

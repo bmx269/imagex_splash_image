@@ -21,7 +21,7 @@
 ?>
 
 <style type="text/css">
-.view-id-media_asset_splash .media-id-<?php print $row->eck_media_asset_field_data_field_splash_id[0]; ?>.slide{
+.view-id-media_asset_splash .media-id-<?php print $row->eck_media_asset_field_data_field_splash_id; ?>.slide{
   background-image: url('<?php print $output; ?>');
 }
 </style>
