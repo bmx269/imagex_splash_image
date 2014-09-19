@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.features.fe_block_settings.inc
+ * parrot_splash_image.features.fe_block_settings.inc
  */
 
 /**
  * Implements hook_default_fe_block_settings().
  */
-function imagex_splash_image_default_fe_block_settings() {
+function parrot_splash_image_default_fe_block_settings() {
   $export = array();
 
   $export['version'] = '2.0';

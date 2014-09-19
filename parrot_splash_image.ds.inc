@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.ds.inc
+ * parrot_splash_image.ds.inc
  */
 
 /**
  * Implements hook_ds_layout_settings_info().
  */
-function imagex_splash_image_ds_layout_settings_info() {
+function parrot_splash_image_ds_layout_settings_info() {
   $export = array();
 
   $ds_layout = new stdClass();

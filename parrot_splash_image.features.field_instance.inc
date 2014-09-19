@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.features.field_instance.inc
+ * parrot_splash_image.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function imagex_splash_image_field_default_field_instances() {
+function parrot_splash_image_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'media_asset-carousel-field_carousel_item'

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.flexslider_default_preset.inc
+ * parrot_splash_image.flexslider_default_preset.inc
  */
 
 /**
  * Implements hook_flexslider_default_presets().
  */
-function imagex_splash_image_flexslider_default_presets() {
+function parrot_splash_image_flexslider_default_presets() {
   $export = array();
 
   $preset = new stdClass();

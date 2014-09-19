@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.views_default.inc
+ * parrot_splash_image.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function imagex_splash_image_views_default_views() {
+function parrot_splash_image_views_default_views() {
   $export = array();
 
   $view = new view();

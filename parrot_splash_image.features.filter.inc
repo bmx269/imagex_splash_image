@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.features.filter.inc
+ * parrot_splash_image.features.filter.inc
  */
 
 /**
  * Implements hook_filter_default_formats().
  */
-function imagex_splash_image_filter_default_formats() {
+function parrot_splash_image_filter_default_formats() {
   $formats = array();
 
   // Exported format: Full HTML.

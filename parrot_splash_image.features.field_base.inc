@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.features.field_base.inc
+ * parrot_splash_image.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function imagex_splash_image_field_default_field_bases() {
+function parrot_splash_image_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_body'

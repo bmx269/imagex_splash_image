@@ -18,14 +18,14 @@ A drupal-org.make file is included to allow you to build the module dependencies
 - flexslider_views
 - image
 - image_url_formatter
-- imagex_common_fields
+- parrot_common_fields
 - inline_entity_form
 - media
 - text
 - views
 - views_content
 
-*** Note that this module assumes you'll already have installed `ctools`, `ds`, `eck`, `entityreference`, `features`, `filefield_paths`, `flexslider`, `image`, `imagex_common_fields`, `media`, `text`, and `views` and as such does not provide them in drupal-org.make. If you don't already have these installed, you'll need to add them manually or include them in your profile's drupal-org.make.
+*** Note that this module assumes you'll already have installed `ctools`, `ds`, `eck`, `entityreference`, `features`, `filefield_paths`, `flexslider`, `image`, `parrot_common_fields`, `media`, `text`, and `views` and as such does not provide them in drupal-org.make. If you don't already have these installed, you'll need to add them manually or include them in your profile's drupal-org.make.
 
 
 ## Roadmap

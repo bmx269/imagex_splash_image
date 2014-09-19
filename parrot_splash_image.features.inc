@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * imagex_splash_image.features.inc
+ * parrot_splash_image.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function imagex_splash_image_ctools_plugin_api($module = NULL, $api = NULL) {
+function parrot_splash_image_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
@@ -19,14 +19,14 @@ function imagex_splash_image_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function imagex_splash_image_views_api($module = NULL, $api = NULL) {
+function parrot_splash_image_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_eck_bundle_info().
  */
-function imagex_splash_image_eck_bundle_info() {
+function parrot_splash_image_eck_bundle_info() {
   $items = array(
     'media_asset_carousel' => array(
       'machine_name' => 'media_asset_carousel',
@@ -74,7 +74,7 @@ function imagex_splash_image_eck_bundle_info() {
 /**
  * Implements hook_eck_entity_type_info().
  */
-function imagex_splash_image_eck_entity_type_info() {
+function parrot_splash_image_eck_entity_type_info() {
   $items = array(
     'media_asset' => array(
       'name' => 'media_asset',
@@ -107,7 +107,7 @@ function imagex_splash_image_eck_entity_type_info() {
 /**
  * Implements hook_image_default_styles().
  */
-function imagex_splash_image_image_default_styles() {
+function parrot_splash_image_image_default_styles() {
   $styles = array();
 
   // Exported image style: feature_splash_mobile.
