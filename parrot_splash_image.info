@@ -1,9 +1,9 @@
-name = Splash Image & Slideshow
+name = Parrot Splash Image & Slideshow
 description = A reusable component for creating splash items.
 core = 7.x
 package = ImageX
 version = 7.x-1.0-beta14
-project = imagex_splash_image
+project = parrot_splash_image
 dependencies[] = ctools
 dependencies[] = ds
 dependencies[] = eck
