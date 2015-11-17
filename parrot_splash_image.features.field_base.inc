@@ -20,14 +20,6 @@ function parrot_splash_image_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -47,14 +39,6 @@ function parrot_splash_image_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_carousel_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -77,14 +61,6 @@ function parrot_splash_image_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_carousel_item',
-    'foreign keys' => array(
-      'eck_media_asset' => array(
-        'columns' => array(
-          'target_id' => 'id',
-        ),
-        'table' => 'eck_media_asset',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -113,6 +89,21 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
+  // Exported field_base: 'field_height'
+  $field_bases['field_height'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_height',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_image'
   $field_bases['field_image'] = array(
     'active' => 1,
@@ -120,14 +111,6 @@ function parrot_splash_image_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -150,7 +133,6 @@ function parrot_splash_image_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_link',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -183,14 +165,6 @@ function parrot_splash_image_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'eck_media_asset' => array(
-        'columns' => array(
-          'target_id' => 'id',
-        ),
-        'table' => 'eck_media_asset',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -219,50 +193,74 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_testimonial_reference'
-  $field_bases['field_testimonial_reference'] = array(
+  // Exported field_base: 'field_video_bg_mp4'
+  $field_bases['field_video_bg_mp4'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_testimonial_reference',
-    'foreign keys' => array(
-      'eck_media_asset' => array(
-        'columns' => array(
-          'target_id' => 'id',
-        ),
-        'table' => 'eck_media_asset',
-      ),
-    ),
+    'field_name' => 'field_video_bg_mp4',
     'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
+      'fid' => array(
+        0 => 'fid',
       ),
     ),
     'locked' => 0,
-    'module' => 'entityreference',
+    'module' => 'file',
     'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'testimonial_item' => 'testimonial_item',
-        ),
-      ),
-      'target_type' => 'media_asset',
+      'display_default' => 0,
+      'display_field' => 0,
+      'uri_scheme' => 'public',
     ),
     'translatable' => 0,
-    'type' => 'entityreference',
+    'type' => 'file',
   );
 
- //features_alter_code('field_base', $field_bases);
+  // Exported field_base: 'field_video_bg_ogv'
+  $field_bases['field_video_bg_ogv'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_video_bg_ogv',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
 
- return $field_bases;
+  // Exported field_base: 'field_video_bg_webm'
+  $field_bases['field_video_bg_webm'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_video_bg_webm',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
+
+  return $field_bases;
 }

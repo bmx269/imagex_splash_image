@@ -185,6 +185,7 @@ function parrot_splash_image_field_default_field_instances() {
     'label' => 'Link',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -202,6 +203,7 @@ function parrot_splash_image_field_default_field_instances() {
       ),
       'rel_remove' => 'default',
       'title' => 'none',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -336,6 +338,52 @@ function parrot_splash_image_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'media_asset-splash-field_height'
+  $field_instances['media_asset-splash-field_height'] = array(
+    'bundle' => 'splash',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Optionally specify an ideal height of this slide. This can be useful when displaying video backgrounds. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'media_asset',
+    'field_name' => 'field_height',
+    'label' => 'Height',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'media_asset-splash-field_image'
   $field_instances['media_asset-splash-field_image'] = array(
     'bundle' => 'splash',
@@ -369,8 +417,8 @@ function parrot_splash_image_field_default_field_instances() {
     'entity_type' => 'media_asset',
     'fences_wrapper' => 'div',
     'field_name' => 'field_image',
-    'label' => 'Image',
-    'required' => 1,
+    'label' => 'Background Image',
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -381,6 +429,7 @@ function parrot_splash_image_field_default_field_instances() {
         'file_name' => array(
           'options' => array(
             'pathauto' => 0,
+            'slashes' => 0,
             'transliterate' => 0,
           ),
           'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
@@ -388,10 +437,12 @@ function parrot_splash_image_field_default_field_instances() {
         'file_path' => array(
           'options' => array(
             'pathauto' => 0,
+            'slashes' => 0,
             'transliterate' => 0,
           ),
           'value' => '',
         ),
+        'redirect' => 0,
         'retroactive_update' => 0,
       ),
       'filefield_paths_enabled' => 1,
@@ -405,34 +456,9 @@ function parrot_splash_image_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
-        'filefield_sources' => array(
-          'filefield_sources' => array(),
-          'source_attach' => array(
-            'absolute' => 0,
-            'attach_mode' => 'move',
-            'path' => 'file_attach',
-          ),
-          'source_imce' => array(
-            'imce_mode' => 0,
-          ),
-          'source_reference' => array(
-            'autocomplete' => 0,
-          ),
-        ),
-        'insert' => 0,
-        'insert_absolute' => FALSE,
-        'insert_class' => '',
-        'insert_default' => array(
-          0 => 'auto',
-        ),
-        'insert_styles' => array(
-          0 => 'auto',
-        ),
-        'insert_width' => '',
         'manualcrop_crop_info' => 1,
         'manualcrop_default_crop_area' => 1,
         'manualcrop_enable' => 1,
-        'manualcrop_filter_insert' => TRUE,
         'manualcrop_inline_crop' => 0,
         'manualcrop_instant_crop' => 0,
         'manualcrop_instant_preview' => 1,
@@ -456,19 +482,18 @@ function parrot_splash_image_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'media_asset-testimonial_item-field_body'
-  $field_instances['media_asset-testimonial_item-field_body'] = array(
-    'bundle' => 'testimonial_item',
-    'default_value' => NULL,
+  // Exported field_instance: 'media_asset-splash-field_video_bg_mp4'
+  $field_instances['media_asset-splash-field_video_bg_mp4'] = array(
+    'bundle' => 'splash',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Must be in mp4, m4a or m4v format.',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
+        'type' => 'file_default',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -478,72 +503,185 @@ function parrot_splash_image_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'media_asset',
-    'field_name' => 'field_body',
-    'label' => 'Testimonial Quote',
+    'field_name' => 'field_video_bg_mp4',
+    'label' => 'Video Background mp4',
     'required' => 0,
     'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'editor' => 'editor',
-          'filtered_html' => 0,
-          'full_html' => 'full_html',
-          'php_code' => 0,
-          'plain_text' => 0,
-        ),
-        'allowed_formats_toggle' => 1,
-        'default_order_toggle' => 0,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'editor' => array(
-              'weight' => 0,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
-            'full_html' => array(
-              'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => 11,
-            ),
-            'plain_text' => array(
-              'weight' => 10,
-            ),
+      'description_field' => 0,
+      'file_directory' => 'video-backgrounds',
+      'file_extensions' => 'mp4 m4a m4v',
+      'filefield_paths' => array(
+        'active_updating' => 0,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
           ),
+          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
         ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => 'video-bgs',
+        ),
+        'redirect' => 0,
+        'retroactive_update' => 0,
       ),
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
-      'text_processing' => 1,
+      'filefield_paths_enabled' => 0,
+      'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'media',
       'settings' => array(
-        'rows' => 15,
+        'allowed_schemes' => array(
+          'feed' => 0,
+          'http' => 0,
+          'https' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 0,
+          'video' => 'video',
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 0,
+          'remote_file' => 0,
+          'upload' => 'upload',
+        ),
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
       ),
-      'type' => 'text_textarea',
+      'type' => 'media_generic',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'media_asset-splash-field_video_bg_ogv'
+  $field_instances['media_asset-splash-field_video_bg_ogv'] = array(
+    'bundle' => 'splash',
+    'deleted' => 0,
+    'description' => 'Must be ogv or ogg format.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'media_asset',
+    'field_name' => 'field_video_bg_ogv',
+    'label' => 'Video Background ogv',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => 'video-backgrounds',
+      'file_extensions' => 'ogv ogg',
+      'filefield_paths' => array(
+        'active_updating' => 0,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '',
+        ),
+        'redirect' => 0,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 0,
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'feed' => 0,
+          'http' => 0,
+          'https' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 0,
+          'video' => 'video',
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 0,
+          'remote_file' => 0,
+          'upload' => 'upload',
+        ),
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
+      ),
+      'type' => 'media_generic',
       'weight' => 32,
     ),
   );
 
-  // Exported field_instance: 'media_asset-testimonial_slideshow-field_testimonial_reference'
-  $field_instances['media_asset-testimonial_slideshow-field_testimonial_reference'] = array(
-    'bundle' => 'testimonial_slideshow',
+  // Exported field_instance: 'media_asset-splash-field_video_bg_webm'
+  $field_instances['media_asset-splash-field_video_bg_webm'] = array(
+    'bundle' => 'splash',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Must be webm format.',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 0,
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -553,44 +691,96 @@ function parrot_splash_image_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'media_asset',
-    'field_name' => 'field_testimonial_reference',
-    'label' => 'Testimonial Reference',
+    'field_name' => 'field_video_bg_webm',
+    'label' => 'Video Background webm',
     'required' => 0,
     'settings' => array(
+      'description_field' => 0,
+      'file_directory' => 'video-backgrounds',
+      'file_extensions' => 'webm',
+      'filefield_paths' => array(
+        'active_updating' => 0,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '',
+        ),
+        'redirect' => 0,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 0,
+      'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'inline_entity_form',
+      'module' => 'media',
       'settings' => array(
-        'fields' => array(),
-        'type_settings' => array(
-          'allow_existing' => 1,
-          'delete_references' => 0,
-          'label_plural' => 'entities',
-          'label_singular' => 'entity',
-          'match_operator' => 'CONTAINS',
-          'override_labels' => 0,
+        'allowed_schemes' => array(
+          'feed' => 0,
+          'http' => 0,
+          'https' => 0,
+          'public' => 'public',
         ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 0,
+          'video' => 'video',
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 0,
+          'remote_file' => 0,
+          'upload' => 'upload',
+        ),
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
       ),
-      'type' => 'inline_entity_form',
-      'weight' => 31,
+      'type' => 'media_generic',
+      'weight' => 33,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Background Image');
   t('Body');
   t('Carousel Image');
   t('Carousel Item');
-  t('Image');
+  t('Height');
   t('Link');
+  t('Must be in mp4, m4a or m4v format.');
+  t('Must be ogv or ogg format.');
+  t('Must be webm format.');
+  t('Optionally specify an ideal height of this slide. This can be useful when displaying video backgrounds. ');
   t('Splash');
-  t('Testimonial Quote');
-  t('Testimonial Reference');
   t('This is the text that appears on the splash image.');
+  t('Video Background mp4');
+  t('Video Background ogv');
+  t('Video Background webm');
 
- //features_alter_code('field_instance', $field_instances);
-
- return $field_instances;
+  return $field_instances;
 }

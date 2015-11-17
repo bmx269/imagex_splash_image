@@ -1,6 +1,5 @@
 require 'susy'
 # http://susy.oddbird.net/
-require 'toolkit'
 
 http_path = "/"
 css_dir = "css"

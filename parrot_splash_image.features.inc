@@ -52,23 +52,8 @@ function parrot_splash_image_eck_bundle_info() {
       'name' => 'splash',
       'label' => 'Splash',
     ),
-    'media_asset_testimonial_item' => array(
-      'machine_name' => 'media_asset_testimonial_item',
-      'entity_type' => 'media_asset',
-      'name' => 'testimonial_item',
-      'label' => 'Testimonial Item',
-    ),
-    'media_asset_testimonial_slideshow' => array(
-      'machine_name' => 'media_asset_testimonial_slideshow',
-      'entity_type' => 'media_asset',
-      'name' => 'testimonial_slideshow',
-      'label' => 'Testimonial Slideshow',
-    ),
   );
-
- //features_alter_code('eck_bundle', $items);
-
- return $items;
+  return $items;
 }
 
 /**
@@ -98,10 +83,7 @@ function parrot_splash_image_eck_entity_type_info() {
       ),
     ),
   );
-
- //features_alter_code('eck_entity_type', $items);
-
- return $items;
+  return $items;
 }
 
 /**
@@ -112,16 +94,9 @@ function parrot_splash_image_image_default_styles() {
 
   // Exported image style: feature_splash_mobile.
   $styles['feature_splash_mobile'] = array(
-    'name' => 'feature_splash_mobile',
     'label' => 'Feature Splash Mobile',
     'effects' => array(
       20 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 500,
@@ -134,13 +109,6 @@ function parrot_splash_image_image_default_styles() {
         'weight' => 0,
       ),
       21 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 500,
@@ -153,16 +121,9 @@ function parrot_splash_image_image_default_styles() {
 
   // Exported image style: feature_splash_narrow.
   $styles['feature_splash_narrow'] = array(
-    'name' => 'feature_splash_narrow',
     'label' => 'Feature Splash Narrow',
     'effects' => array(
       18 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 650,
@@ -175,13 +136,6 @@ function parrot_splash_image_image_default_styles() {
         'weight' => 0,
       ),
       19 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 650,
@@ -194,16 +148,9 @@ function parrot_splash_image_image_default_styles() {
 
   // Exported image style: feature_splash_tablet.
   $styles['feature_splash_tablet'] = array(
-    'name' => 'feature_splash_tablet',
     'label' => 'Feature Splash Tablet',
     'effects' => array(
       16 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 1000,
@@ -216,13 +163,6 @@ function parrot_splash_image_image_default_styles() {
         'weight' => 0,
       ),
       17 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 1000,
@@ -235,16 +175,9 @@ function parrot_splash_image_image_default_styles() {
 
   // Exported image style: feature_splash_udesktop.
   $styles['feature_splash_udesktop'] = array(
-    'name' => 'feature_splash_udesktop',
     'label' => 'Feature Splash Desktop',
     'effects' => array(
       14 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 1500,
@@ -257,13 +190,6 @@ function parrot_splash_image_image_default_styles() {
         'weight' => 0,
       ),
       15 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 1500,
@@ -276,16 +202,9 @@ function parrot_splash_image_image_default_styles() {
 
   // Exported image style: feature_splash_wide.
   $styles['feature_splash_wide'] = array(
-    'name' => 'feature_splash_wide',
     'label' => 'Feature Splash Wide',
     'effects' => array(
       68 => array(
-        'label' => 'Manual Crop: Crop and scale',
-        'help' => 'Crop and scale a user-selected area, respecting the ratio of the destination width and height.',
-        'effect callback' => 'manualcrop_crop_and_scale_effect',
-        'form callback' => 'manualcrop_crop_and_scale_form',
-        'summary theme' => 'manualcrop_crop_and_scale_summary',
-        'module' => 'manualcrop',
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 1170,
@@ -298,13 +217,6 @@ function parrot_splash_image_image_default_styles() {
         'weight' => 0,
       ),
       69 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 1170,
@@ -315,7 +227,5 @@ function parrot_splash_image_image_default_styles() {
     ),
   );
 
- //features_alter_code('image', $styles);
-
- return $styles;
+  return $styles;
 }

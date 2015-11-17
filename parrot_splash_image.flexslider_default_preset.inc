@@ -16,8 +16,6 @@ function parrot_splash_image_flexslider_default_presets() {
   $preset->name = 'carousel';
   $preset->title = 'Carousel';
   $preset->theme = 'classic';
-  $preset->imagestyle_normal = '';
-  $preset->imagestyle_thumbnail = 'flexslider_thumbnail';
   $preset->options = array(
     'namespace' => 'flex-',
     'selector' => '.slides > li',
@@ -68,8 +66,6 @@ function parrot_splash_image_flexslider_default_presets() {
   $preset->name = 'clone_of_timeline';
   $preset->title = 'Testimonial';
   $preset->theme = 'classic';
-  $preset->imagestyle_normal = 'flexslider_full';
-  $preset->imagestyle_thumbnail = 'flexslider_thumbnail';
   $preset->options = array(
     'namespace' => 'flex-',
     'selector' => '.slides > li',
@@ -120,8 +116,6 @@ function parrot_splash_image_flexslider_default_presets() {
   $preset->name = 'timeline';
   $preset->title = 'Timeline';
   $preset->theme = 'classic';
-  $preset->imagestyle_normal = 'flexslider_full';
-  $preset->imagestyle_thumbnail = 'flexslider_thumbnail';
   $preset->options = array(
     'namespace' => 'flex-',
     'selector' => '.slides > li',
@@ -166,7 +160,5 @@ function parrot_splash_image_flexslider_default_presets() {
   );
   $export['timeline'] = $preset;
 
- //features_alter_code('flexslider_optionset', $export);
-
- return $export;
+  return $export;
 }

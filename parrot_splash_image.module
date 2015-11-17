@@ -48,3 +48,11 @@ function parrot_splash_image_views_api_alter(&$list) {
   drupal_add_css($path . '/css/parrot_splash_image.css');
 
 }*/
+
+/**
+ * Implements hook_process_flexslider_views()
+ */
+function parrot_splash_image_process_flexslider(&$vars) {
+  $module_path = drupal_get_path('module', 'parrot_splash_image');
+  drupal_add_js($module_path . '/js/parrot_splash_image.min.js', array('type' => 'file', 'scope' => 'footer', 'weight' => 1000));
+}

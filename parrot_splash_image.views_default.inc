@@ -43,7 +43,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['fields']['id']['label'] = '';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
+  /* Field: Media Asset: Background Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -60,7 +60,7 @@ function parrot_splash_image_views_default_views() {
     'image_style' => 'flexslider_588x290',
     'image_link' => '',
   );
-  /* Field: Media Asset: Testimonial Quote */
+  /* Field: Media Asset: Body */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -117,7 +117,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['fields']['id']['label'] = '';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
+  /* Field: Media Asset: Background Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -137,7 +137,7 @@ function parrot_splash_image_views_default_views() {
     'image_link' => '',
     'colorbox' => 'timeline',
   );
-  /* Field: Media Asset: Testimonial Quote */
+  /* Field: Media Asset: Body */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -253,7 +253,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'testimonial-pane ';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_testimonial_reference_target_id']['id'] = 'field_testimonial_reference_target_id';
   $handler->display->display_options['relationships']['field_testimonial_reference_target_id']['table'] = 'field_data_field_testimonial_reference';
   $handler->display->display_options['relationships']['field_testimonial_reference_target_id']['field'] = 'field_testimonial_reference_target_id';
@@ -265,7 +265,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['fields']['id']['label'] = '';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
-  /* Field: Media Asset: Testimonial Quote */
+  /* Field: Media Asset: Body */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -341,6 +341,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'flexslider';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_splash_node']['id'] = 'reverse_field_splash_node';
@@ -450,7 +451,7 @@ function parrot_splash_image_views_default_views() {
     'image_style' => 'feature_splash_wide',
     'image_link' => '',
   );
-  /* Field: Media Asset: Testimonial Quote */
+  /* Field: Media Asset: Body */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -463,16 +464,89 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['fields']['field_body']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_body']['field_api_classes'] = TRUE;
-  /* Field: Global: Custom text */
+  /* Field: Media Asset: Video Background mp4 */
+  $handler->display->display_options['fields']['field_video_bg_mp4']['id'] = 'field_video_bg_mp4';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['table'] = 'field_data_field_video_bg_mp4';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['field'] = 'field_video_bg_mp4';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['relationship'] = 'field_splash_target_id';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['label'] = '';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_video_bg_mp4']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_video_bg_mp4']['alter']['text'] = '<source src="[field_video_bg_mp4]" type="video/mp4">';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_bg_mp4']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_video_bg_mp4']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_video_bg_mp4']['settings'] = array(
+    'controls' => 0,
+    'autoplay' => 0,
+    'loop' => 0,
+    'muted' => 0,
+    'width' => '',
+    'height' => '',
+    'preload' => '',
+    'multiple_file_behavior' => 'sources',
+  );
+  /* Field: Media Asset: Video Background ogv */
+  $handler->display->display_options['fields']['field_video_bg_ogv']['id'] = 'field_video_bg_ogv';
+  $handler->display->display_options['fields']['field_video_bg_ogv']['table'] = 'field_data_field_video_bg_ogv';
+  $handler->display->display_options['fields']['field_video_bg_ogv']['field'] = 'field_video_bg_ogv';
+  $handler->display->display_options['fields']['field_video_bg_ogv']['relationship'] = 'field_splash_target_id';
+  $handler->display->display_options['fields']['field_video_bg_ogv']['label'] = '';
+  $handler->display->display_options['fields']['field_video_bg_ogv']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_video_bg_ogv']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_bg_ogv']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_video_bg_ogv']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_video_bg_ogv']['settings'] = array(
+    'controls' => 0,
+    'autoplay' => 0,
+    'loop' => 0,
+    'muted' => 0,
+    'width' => '',
+    'height' => '',
+    'preload' => '',
+    'multiple_file_behavior' => 'tags',
+  );
+  /* Field: Media Asset: Video Background webm */
+  $handler->display->display_options['fields']['field_video_bg_webm']['id'] = 'field_video_bg_webm';
+  $handler->display->display_options['fields']['field_video_bg_webm']['table'] = 'field_data_field_video_bg_webm';
+  $handler->display->display_options['fields']['field_video_bg_webm']['field'] = 'field_video_bg_webm';
+  $handler->display->display_options['fields']['field_video_bg_webm']['relationship'] = 'field_splash_target_id';
+  $handler->display->display_options['fields']['field_video_bg_webm']['label'] = '';
+  $handler->display->display_options['fields']['field_video_bg_webm']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_video_bg_webm']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_bg_webm']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_video_bg_webm']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_video_bg_webm']['settings'] = array(
+    'controls' => 0,
+    'autoplay' => 0,
+    'loop' => 0,
+    'muted' => 0,
+    'width' => '',
+    'height' => '',
+    'preload' => '',
+    'multiple_file_behavior' => 'tags',
+  );
+  /* Field: Media Asset: Height */
+  $handler->display->display_options['fields']['field_height']['id'] = 'field_height';
+  $handler->display->display_options['fields']['field_height']['table'] = 'field_data_field_height';
+  $handler->display->display_options['fields']['field_height']['field'] = 'field_height';
+  $handler->display->display_options['fields']['field_height']['relationship'] = 'field_splash_target_id';
+  $handler->display->display_options['fields']['field_height']['label'] = '';
+  $handler->display->display_options['fields']['field_height']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_height']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_height']['type'] = 'number_unformatted';
+  $handler->display->display_options['fields']['field_height']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 0,
+  );
+  /* Field: Slide Content */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Slide Content';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="slide media-id-[id]">
-<div class="grid">
-<div class="inner">
-<div class="slide-content">
-<div class="slide-text">[field_body]</div></div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_body]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -499,7 +573,5 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['block_description'] = 'Splash Banner Block';
   $export['media_asset_splash'] = $view;
 
- //features_alter_code('views_view', $export);
-
- return $export;
+  return $export;
 }
