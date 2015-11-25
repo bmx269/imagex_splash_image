@@ -34,6 +34,13 @@ foreach (array('mp4', 'ogv', 'webm') as $format) {
     $classes = ' slide-has-video';
   }
 }
+
+// Overlay
+if (!empty($row->field_field_overlay)) {
+  $classes .= ' ' . render($row->field_field_overlay[0]['rendered']);
+}
+
+// Poster image
 $poster = '';
 if (!empty($row->field_field_image)) {
   //$poster = ' poster="' . render($row->field_field_image[0]['rendered']) . '"';

@@ -2,6 +2,19 @@
 (function($) {
 
   /**
+   * Resize delay to account for hidden items
+   */
+  Drupal.behaviors.flexsliderResize = {
+    attach: function(context, settings) {
+      $(window).bind('resize', function() {
+        setTimeout(function(){
+          $('.flexslider', context).data('flexslider').resize();
+        },3000);
+      }); 
+    }
+  };
+
+  /**
    * Hook into Flexslider events
    */
   Drupal.behaviors.flexsliderHooks = {

@@ -12,9 +12,7 @@ include_once 'parrot_splash_image.features.inc';
  * Adds views templates.
  */
 function parrot_splash_image_views_api_alter(&$list) {
-
   $list['views']['template path'] = drupal_get_path('module', 'parrot_splash_image') . '/templates';
-
 }
 
 /**
@@ -50,9 +48,86 @@ function parrot_splash_image_views_api_alter(&$list) {
 }*/
 
 /**
- * Implements hook_process_flexslider_views()
+ * Implements hook_preprocess_owlcarousel()
  */
-function parrot_splash_image_process_flexslider(&$vars) {
-  $module_path = drupal_get_path('module', 'parrot_splash_image');
-  drupal_add_js($module_path . '/js/parrot_splash_image.min.js', array('type' => 'file', 'scope' => 'footer', 'weight' => 1000));
+function parrot_splash_image_preprocess_owlcarousel(&$vars) {
+  if (!empty($vars['items'])) {
+    $vars['classes_array'][] = 'owlcarousel-items-' . count($vars['items']);
+  }
+  if (!empty($vars['settings']['instance'])) {
+    $vars['classes_array'][] = drupal_clean_css_identifier('owlcarousel-optionset-'. $vars['settings']['instance']);
+  }
+}
+
+/**
+ * Implements hook_process_owlcarousel()
+ */
+function parrot_splash_image_process_owlcarousel(&$vars) {
+
+}
+
+/**
+ * Implements hook_owlcarousel_settings_alter().
+ *
+ * @param array
+ *   Instance settings.
+ * @param string
+ *   Carousel identifier.
+ */
+function parrot_splash_image_owlcarousel_settings_alter(&$settings, $instance) {
+  switch ($instance) {
+    case 'owlcarousel-media-asset-splash-panel-pane-1':
+      $module_path = drupal_get_path('module', 'parrot_splash_image');
+      drupal_add_js($module_path . '/js/parrot_splash_image.owlcarousel.js', array('type' => 'file', 'scope' => 'footer', 'weight' => 1000));      
+      break;
+  }
+}
+
+/**
+ * Implements hook_form_FORMID_alter()
+ */
+function parrot_splash_image_form_bean_form_alter(&$form, &$form_state, $form_id) {
+  $bean = $form_state['bean'];
+  if ($bean->type == 'carousel_block' && module_exists('owlcarousel_fields')) {
+    // Owlcarousel settings per bean
+    $optionsets = array();
+    foreach (owlcarousel_instance_callback_list() as $name) {
+      $optionsets[$name] = $name;
+    }
+
+    $form['instance'] = array(
+      '#title' => t('Owlcarousel settings set'),
+      '#type' => 'select',
+      '#options' => $optionsets,
+      '#default_value' => !empty($bean->data['instance']) && !empty($optionsets[$bean->data['instance']]) ? $bean->data['instance'] : 'owlcarousel_settings_default',
+      '#description' => t('Select an optionset for how the carousel should display. <a href="@owlcarousel-new">Add new owlcarousel optionset</a>.', array('@owlcarousel-new' => url('admin/config/user-interface/owlcarousel', array('query' => drupal_get_destination())))),
+    );
+  }
+}
+
+/**
+ * Implements hook__entity_presave()
+ */
+function parrot_splash_image_entity_presave($entity, $type) {
+  // Save block option set
+  if (!empty($entity->instance)) {
+    $entity->data['instance'] = $entity->instance;
+  }
+}
+/**
+ * Implements hook_field_display_alter()
+ */
+function parrot_splash_image_field_display_alter(&$display, $context) {
+  $entity = $context['entity'];
+  if ($context['entity_type'] == 'bean' && $entity->type == 'carousel_block') {
+    if ($display['module'] == 'owlcarousel_fields') {
+      // Pass to hook_process_flexslider
+      $display['settings']['parent_entity'] = $entity;
+      if (!empty($entity->data['instance'])) {
+        $display['settings']['id'] = $entity->data['instance'];
+        $display['settings']['settings_group'] = $entity->data['instance'];
+        $display['settings']['settings_group_altered'] = TRUE;
+      }
+    }
+  }
 }
