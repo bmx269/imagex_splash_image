@@ -6,24 +6,70 @@
    */
   Drupal.behaviors.owlcarouselHooks = {
     attach: function(context, settings) {
-      var splashSlider = $('.view-media-asset-splash .owl-carousel', context),
-        splashSliderOwl = splashSlider.data('owlCarousel') || {};
+      var splashSliderWrapper = $('.view-media-asset-splash', context),
+        splashSlider = $('.view-media-asset-splash .owl-carousel', context),
+        splashSliderOwl = splashSlider.data('owlCarousel') || null,
+        videoPlay = function(video) {
+          if (video !== null && video.size() > 0) {
+            var videoElement = video.get(0);
+            
+            if (videoElement.currentTime > 0) {
+              video.trigger('play');
+            }
+            else {
+              videoElement.currentTime = 0;
+              video.parent('.slide').addClass('video-loading');
+              video.on('canplay', function (event) {
+                video.parent('.slide').removeClass('video-loading');
+                $(this).trigger('play');
+                $(this).off('canplay');
+              });
+            }
+            return true;
+          }
+          return false;
+        },
+        videoEnded = function(video, sliderData, slider, slides) {
+          video.on('ended',function(){
+            $(this).off('ended');
+            if (slides.size() > 1) {
+              sliderData.next();
+            }
+            else {
+              video.trigger('play');
+            }
+          });
+        },
+        slideHeight = function () {
+          if (splashSliderOwl !== null) {
+            var slides = splashSliderOwl.$owlItems || null;
+            if (slides !== null) {
+              slides.find('[data-ideal-height]').each(function() {
+                idealHeight = $(this).data('ideal-height');
+                $(this).css('min-height', idealHeight);
+              });
+            }
+          }
+        };
+        
+      slideHeight();
       
-      // Event: BeforeMove
-      parrotSplashImageOwlAfterInit = function(owl) {        
-        var sliderData = owl.data('owlCarousel'),
+      // Event: afterInit
+      parrotSplashImageOwlAfterInit = function() {
+        var sliderData = this,
           slider = sliderData.$elem,
-          slides = sliderData.$owlItems;
-
+          slides = sliderData.$owlItems,
+          allVideos = slides.find('video') || null;
+          
+        // Wrapper is hidden with CSS to provide broken loading  
+        splashSliderWrapper.addClass('loaded');
+        
         // Slider contains video?
-        if (slides.find('video').size() > 0) {
-          var allVideos = slides.find('video'),
-            currentVideo = slides.eq(sliderData.owl.currentItem).find('video') || null;
-
+        if (allVideos !== null && allVideos.size() > 0) {
           allVideos.trigger('pause');  
           sliderData.stop();
           slider.addClass('slider-has-videos');
-
+          
           // Kill on mobile as performance is poor
           if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             allVideos.remove();
@@ -32,78 +78,56 @@
             sliderData.play();
           }
           else {
-            // Pause all videos then play any in current slide
-            currentVideo.trigger('play');
-            currentVideo.bind('ended',function(){
-              if (slides.size() > 1) {
-                sliderData.next();
-              }
-              else {
-                currentVideo.trigger('play');
-              }
-            });
+            if (videoPlay(slides.eq(0).find('video')) === true) {
+              videoEnded(slides.eq(0).find('video'), sliderData, slider, slides);
+            }
+            else {
+              sliderData.play();
+            }
           }
         }
-        
-        // Shift heights on slide change
-        $(window).bind('resize', function () {
-          Drupal.owlcarouselFlexiHeight(sliderData);
-        });
-
-        $(window).trigger('resize');
       };
       
-      // Event: Before
-      parrotSplashImageOwlBeforeMove = function(owl) {
-        var sliderData = owl.data('owlCarousel'),
+      // Event: BeforeMove
+      parrotSplashImageOwlBeforeMove = function() {
+        var sliderData = this,
           slider = sliderData.$elem,
-          slides = sliderData.$owlItems;
-        
-        if (slider.hasClass('slider-has-videos')) {
-          var currentVideo = slides.eq(sliderData.owl.prevItem).find('video') || null,
-              nextVideo = slides.eq(sliderData.owl.currentItem).find('video') || null;
+          slides = sliderData.$owlItems,
+          nextSlide = slides.eq(sliderData.currentItem) || null;
  
-          // Pause current slide video, start next slide video
-          currentVideo.trigger('pause');
+        if (nextSlide === null) {
+          return;
+        }
+
+        if (slider.hasClass('slider-has-videos')) {
+          var nextVideo = nextSlide.find('video') || null;
+          slides.find('video').trigger('pause');
           sliderData.stop();
           
-          if (nextVideo.size() > 0) { 
-            nextVideo.get(0).currentTime = 0;
-            nextVideo.trigger('play');
-            nextVideo.bind('ended',function(){
-              if (slides.size() > 1) {
-                sliderData.next();
-              }
-              else {
-                nextVideo.trigger('play');
-              }
-            });
+          if (videoPlay(nextVideo) === true) {
+            videoEnded(nextVideo, sliderData, slider, slides);
           }
           else {
             sliderData.play();
           }
         }
-        
-        $(window).trigger('resize');
-      };
+      };      
       
-      if (typeof splashSliderOwl !== undefined) {
+      if (splashSliderOwl !== null) {
+        splashSliderOwl.options.autoHeight = true;
+        splashSliderOwl.options.addClassActive = true;
         splashSliderOwl.options.afterInit = parrotSplashImageOwlAfterInit;
         splashSliderOwl.options.beforeMove = parrotSplashImageOwlBeforeMove;
         splashSliderOwl.reinit(splashSliderOwl.options)
       }
-    }
-  };
-
-  /**
-   * Allow each slide to suggest it's ideal height [data-ideal-height]
-   */
-  Drupal.owlcarouselFlexiHeight = function (slider) {
-    var idealHeightEl = slider.$owlItems.eq(slider.owl.currentItem).find('[data-ideal-height]') || null;
-    
-    if (idealHeightEl.size() > 0 && idealHeightEl.data('ideal-height') !== null) {
-      idealHeight = idealHeightEl.data('ideal-height');
-      slider.$owlItems.find('.slide').css('min-height', idealHeight);
+      else {
+        // single banner
+        $('[data-ideal-height]').each(function() {
+          idealHeight = $(this).data('ideal-height');
+          $(this).css('min-height', idealHeight);
+        });
+        splashSliderWrapper.addClass('loaded');
+      }
     }
   };   
   

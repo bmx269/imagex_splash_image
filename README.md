@@ -13,9 +13,7 @@ A drupal-org.make file is included to allow you to build the module dependencies
 - entityreference
 - features
 - filefield_paths
-- flexslider
-- flexslider_fields
-- flexslider_views
+- owlcarousel
 - image
 - image_url_formatter
 - parrot_common_fields
@@ -25,7 +23,7 @@ A drupal-org.make file is included to allow you to build the module dependencies
 - views
 - views_content
 
-*** Note that this module assumes you'll already have installed `ctools`, `ds`, `eck`, `entityreference`, `features`, `filefield_paths`, `flexslider`, `image`, `parrot_common_fields`, `media`, `text`, and `views` and as such does not provide them in drupal-org.make. If you don't already have these installed, you'll need to add them manually or include them in your profile's drupal-org.make.
+*** Note that this module assumes you'll already have installed `ctools`, `ds`, `eck`, `entityreference`, `features`, `filefield_paths`, `owlcarousel`, `image`, `parrot_common_fields`, `media`, `text`, and `views` and as such does not provide them in drupal-org.make. If you don't already have these installed, you'll need to add them manually or include them in your profile's drupal-org.make.
 
 
 ## Roadmap

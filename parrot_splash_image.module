@@ -63,7 +63,7 @@ function parrot_splash_image_preprocess_owlcarousel(&$vars) {
  * Implements hook_process_owlcarousel()
  */
 function parrot_splash_image_process_owlcarousel(&$vars) {
-
+  $vars['settings']['attributes']['class'] = array_merge($vars['settings']['attributes']['class'], $vars['classes_array']);
 }
 
 /**
