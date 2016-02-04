@@ -57,9 +57,20 @@ if (!empty($row->field_field_height)) {
     <?php echo implode('', $videos); ?>
   </video>
   <?php }; ?>
-  <div class="slide-content">
-    <div class="slide-text">  
-    <?php print $output; ?>
+  <div class="slide-overlay">
+    <div class="slide-content">
+      <div class="slide-text">
+      <?php print $output; ?>
+      </div>
+      <?php if (!empty($row->field_field_video_popup)) {?>
+        <div class="slide-video">
+          <div class="play-video">
+            <div class="inner">
+            <?php print render($row->field_field_video_popup[0]['rendered']);?>
+            </div>
+          </div>
+        </div>
+      <?php }; ?>
     </div>
   </div>
 </div>

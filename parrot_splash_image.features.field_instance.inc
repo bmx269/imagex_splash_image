@@ -10,7 +10,7 @@
 function parrot_splash_image_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'media_asset-carousel-field_carousel_item'
+  // Exported field_instance: 'media_asset-carousel-field_carousel_item'.
   $field_instances['media_asset-carousel-field_carousel_item'] = array(
     'bundle' => 'carousel',
     'deleted' => 0,
@@ -59,7 +59,7 @@ function parrot_splash_image_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'media_asset-carousel_item-field_carousel_image'
+  // Exported field_instance: 'media_asset-carousel_item-field_carousel_image'.
   $field_instances['media_asset-carousel_item-field_carousel_image'] = array(
     'bundle' => 'carousel_item',
     'deleted' => 0,
@@ -159,7 +159,7 @@ function parrot_splash_image_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'media_asset-carousel_item-field_link'
+  // Exported field_instance: 'media_asset-carousel_item-field_link'.
   $field_instances['media_asset-carousel_item-field_link'] = array(
     'bundle' => 'carousel_item',
     'default_value' => NULL,
@@ -219,7 +219,7 @@ function parrot_splash_image_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'media_asset-slideshow-field_splash'
+  // Exported field_instance: 'media_asset-slideshow-field_splash'.
   $field_instances['media_asset-slideshow-field_splash'] = array(
     'bundle' => 'slideshow',
     'deleted' => 0,
@@ -269,7 +269,7 @@ function parrot_splash_image_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'media_asset-splash-field_body'
+  // Exported field_instance: 'media_asset-splash-field_body'.
   $field_instances['media_asset-splash-field_body'] = array(
     'bundle' => 'splash',
     'default_value' => NULL,
@@ -333,12 +333,12 @@ function parrot_splash_image_field_default_field_instances() {
         'rows' => 15,
       ),
       'type' => 'text_textarea',
-      'weight' => 1,
+      'weight' => 2,
     ),
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'media_asset-splash-field_height'
+  // Exported field_instance: 'media_asset-splash-field_height'.
   $field_instances['media_asset-splash-field_height'] = array(
     'bundle' => 'splash',
     'default_value' => NULL,
@@ -380,11 +380,11 @@ function parrot_splash_image_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 4,
     ),
   );
 
-  // Exported field_instance: 'media_asset-splash-field_image'
+  // Exported field_instance: 'media_asset-splash-field_image'.
   $field_instances['media_asset-splash-field_image'] = array(
     'bundle' => 'splash',
     'deleted' => 0,
@@ -392,24 +392,26 @@ function parrot_splash_image_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'flexslider_fields',
+        'module' => 'image',
         'settings' => array(
           'caption' => FALSE,
+          'image_link' => '',
           'image_style' => '',
           'optionset' => 'default',
         ),
-        'type' => 'flexslider',
+        'type' => 'image',
         'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
-        'module' => 'flexslider_fields',
+        'module' => 'image',
         'settings' => array(
           'caption' => FALSE,
+          'image_link' => '',
           'image_style' => '',
           'optionset' => 'default',
         ),
-        'type' => 'flexslider',
+        'type' => 'image',
         'weight' => 0,
       ),
     ),
@@ -482,7 +484,46 @@ function parrot_splash_image_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'media_asset-splash-field_video_bg_mp4'
+  // Exported field_instance: 'media_asset-splash-field_overlay'.
+  $field_instances['media_asset-splash-field_overlay'] = array(
+    'bundle' => 'splash',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Optional overlay colour for the background image or video.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'media_asset',
+    'field_name' => 'field_overlay',
+    'label' => 'Overlay',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'use_select2' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'media_asset-splash-field_video_bg_mp4'.
   $field_instances['media_asset-splash-field_video_bg_mp4'] = array(
     'bundle' => 'splash',
     'deleted' => 0,
@@ -572,11 +613,11 @@ function parrot_splash_image_field_default_field_instances() {
         'manualcrop_thumblist' => 0,
       ),
       'type' => 'media_generic',
-      'weight' => 31,
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'media_asset-splash-field_video_bg_ogv'
+  // Exported field_instance: 'media_asset-splash-field_video_bg_ogv'.
   $field_instances['media_asset-splash-field_video_bg_ogv'] = array(
     'bundle' => 'splash',
     'deleted' => 0,
@@ -666,11 +707,11 @@ function parrot_splash_image_field_default_field_instances() {
         'manualcrop_thumblist' => 0,
       ),
       'type' => 'media_generic',
-      'weight' => 32,
+      'weight' => 6,
     ),
   );
 
-  // Exported field_instance: 'media_asset-splash-field_video_bg_webm'
+  // Exported field_instance: 'media_asset-splash-field_video_bg_webm'.
   $field_instances['media_asset-splash-field_video_bg_webm'] = array(
     'bundle' => 'splash',
     'deleted' => 0,
@@ -760,7 +801,54 @@ function parrot_splash_image_field_default_field_instances() {
         'manualcrop_thumblist' => 0,
       ),
       'type' => 'media_generic',
-      'weight' => 33,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'media_asset-splash-field_video_popup'.
+  $field_instances['media_asset-splash-field_video_popup'] = array(
+    'bundle' => 'splash',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'This is a Vimeo or Youtube video, and will show as a play button on the slide, and open in a colorbox.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'video_embed_field',
+        'settings' => array(
+          'description' => 1,
+          'description_position' => 'bottom',
+          'video_style' => 'normal',
+        ),
+        'type' => 'video_embed_field',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'media_asset',
+    'field_name' => 'field_video_popup',
+    'label' => 'Video Popup',
+    'required' => 0,
+    'settings' => array(
+      'allowed_providers' => array(
+        'vimeo' => 'vimeo',
+        'youtube' => 'youtube',
+      ),
+      'description_field' => 0,
+      'description_length' => 128,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'video_embed_field',
+      'settings' => array(),
+      'type' => 'video_embed_field_video',
+      'weight' => 3,
     ),
   );
 
@@ -775,12 +863,16 @@ function parrot_splash_image_field_default_field_instances() {
   t('Must be in mp4, m4a or m4v format.');
   t('Must be ogv or ogg format.');
   t('Must be webm format.');
+  t('Optional overlay colour for the background image or video.');
   t('Optionally specify an ideal height of this slide. This can be useful when displaying video backgrounds. ');
+  t('Overlay');
   t('Splash');
+  t('This is a Vimeo or Youtube video, and will show as a play button on the slide, and open in a colorbox.');
   t('This is the text that appears on the splash image.');
   t('Video Background mp4');
   t('Video Background ogv');
   t('Video Background webm');
+  t('Video Popup');
 
   return $field_instances;
 }

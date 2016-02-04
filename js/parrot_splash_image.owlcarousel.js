@@ -1,6 +1,7 @@
 /* custom code */
 (function($) {
-
+  var singleVideoMaxLoops = 2; // play count = +1 for initial play
+  
   /**
    * Hook into owlcarousel events
    */
@@ -60,7 +61,7 @@
           slider = sliderData.$elem,
           slides = sliderData.$owlItems,
           allVideos = slides.find('video') || null;
-          
+ 
         // Wrapper is hidden with CSS to provide broken loading  
         splashSliderWrapper.addClass('loaded');
         
@@ -122,6 +123,24 @@
       }
       else {
         // single banner
+        // Find any videos & play in loop
+        if (splashSliderWrapper.find('video').size() > 0) {
+          var video = splashSliderWrapper.find('video'),
+            loopCount = 0;
+          if (videoPlay(video) === true) {
+            video.on('ended',function(){
+              ++loopCount;
+              video.trigger('play');
+              
+              // For resource just loop X times
+              if (loopCount === singleVideoMaxLoops) {
+                $(this).off('ended');
+              }
+            });
+          }
+        }
+        
+        // Set height
         $('[data-ideal-height]').each(function() {
           idealHeight = $(this).data('ideal-height');
           $(this).css('min-height', idealHeight);

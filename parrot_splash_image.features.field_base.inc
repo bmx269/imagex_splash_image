@@ -10,7 +10,7 @@
 function parrot_splash_image_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_body'
+  // Exported field_base: 'field_body'.
   $field_bases['field_body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -32,7 +32,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_carousel_image'
+  // Exported field_base: 'field_carousel_image'.
   $field_bases['field_carousel_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -54,7 +54,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_carousel_item'
+  // Exported field_base: 'field_carousel_item'.
   $field_bases['field_carousel_item'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -89,7 +89,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_height'
+  // Exported field_base: 'field_height'.
   $field_bases['field_height'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -104,7 +104,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_image'
+  // Exported field_base: 'field_image'.
   $field_bases['field_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -126,7 +126,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_link'
+  // Exported field_base: 'field_link'.
   $field_bases['field_link'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -155,7 +155,33 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_splash'
+  // Exported field_base: 'field_overlay'.
+  $field_bases['field_overlay'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_overlay',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'overlay-left' => 'Left',
+        'overlay-right' => 'Right',
+        'overlay-bottom' => 'Bottom',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_splash'.
   $field_bases['field_splash'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -193,7 +219,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_video_bg_mp4'
+  // Exported field_base: 'field_video_bg_mp4'.
   $field_bases['field_video_bg_mp4'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -216,7 +242,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_video_bg_ogv'
+  // Exported field_base: 'field_video_bg_ogv'.
   $field_bases['field_video_bg_ogv'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -239,7 +265,7 @@ function parrot_splash_image_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_video_bg_webm'
+  // Exported field_base: 'field_video_bg_webm'.
   $field_bases['field_video_bg_webm'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -260,6 +286,21 @@ function parrot_splash_image_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'file',
+  );
+
+  // Exported field_base: 'field_video_popup'.
+  $field_bases['field_video_popup'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_video_popup',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'video_embed_field',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'video_embed_field',
   );
 
   return $field_bases;

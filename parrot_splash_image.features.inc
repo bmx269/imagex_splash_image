@@ -11,6 +11,9 @@ function parrot_splash_image_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "flexslider" && $api == "flexslider_default_preset") {
     return array("version" => "1");
   }
@@ -33,24 +36,28 @@ function parrot_splash_image_eck_bundle_info() {
       'entity_type' => 'media_asset',
       'name' => 'carousel',
       'label' => 'Carousel',
+      'config' => array(),
     ),
     'media_asset_carousel_item' => array(
       'machine_name' => 'media_asset_carousel_item',
       'entity_type' => 'media_asset',
       'name' => 'carousel_item',
       'label' => 'Carousel Item',
+      'config' => array(),
     ),
     'media_asset_slideshow' => array(
       'machine_name' => 'media_asset_slideshow',
       'entity_type' => 'media_asset',
       'name' => 'slideshow',
       'label' => 'Slideshow',
+      'config' => array(),
     ),
     'media_asset_splash' => array(
       'machine_name' => 'media_asset_splash',
       'entity_type' => 'media_asset',
       'name' => 'splash',
       'label' => 'Splash',
+      'config' => array(),
     ),
   );
   return $items;
@@ -96,7 +103,7 @@ function parrot_splash_image_image_default_styles() {
   $styles['feature_splash_mobile'] = array(
     'label' => 'Feature Splash Mobile',
     'effects' => array(
-      20 => array(
+      71 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 500,
@@ -108,7 +115,7 @@ function parrot_splash_image_image_default_styles() {
         ),
         'weight' => 0,
       ),
-      21 => array(
+      76 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 500,
@@ -123,11 +130,11 @@ function parrot_splash_image_image_default_styles() {
   $styles['feature_splash_narrow'] = array(
     'label' => 'Feature Splash Narrow',
     'effects' => array(
-      18 => array(
+      61 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 650,
-          'height' => 600,
+          'width' => 600,
+          'height' => 400,
           'upscale' => 0,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,
@@ -135,11 +142,11 @@ function parrot_splash_image_image_default_styles() {
         ),
         'weight' => 0,
       ),
-      19 => array(
+      66 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 650,
-          'height' => 600,
+          'width' => 600,
+          'height' => 400,
         ),
         'weight' => 2,
       ),
@@ -150,11 +157,11 @@ function parrot_splash_image_image_default_styles() {
   $styles['feature_splash_tablet'] = array(
     'label' => 'Feature Splash Tablet',
     'effects' => array(
-      16 => array(
+      51 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 1000,
-          'height' => 700,
+          'width' => 800,
+          'height' => 320,
           'upscale' => 0,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,
@@ -162,11 +169,11 @@ function parrot_splash_image_image_default_styles() {
         ),
         'weight' => 0,
       ),
-      17 => array(
+      56 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1000,
-          'height' => 700,
+          'width' => 800,
+          'height' => 320,
         ),
         'weight' => 2,
       ),
@@ -177,11 +184,11 @@ function parrot_splash_image_image_default_styles() {
   $styles['feature_splash_udesktop'] = array(
     'label' => 'Feature Splash Desktop',
     'effects' => array(
-      14 => array(
+      41 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 1500,
-          'height' => 700,
+          'width' => 1100,
+          'height' => 440,
           'upscale' => 0,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,
@@ -189,11 +196,11 @@ function parrot_splash_image_image_default_styles() {
         ),
         'weight' => 0,
       ),
-      15 => array(
+      46 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1500,
-          'height' => 700,
+          'width' => 1100,
+          'height' => 440,
         ),
         'weight' => 2,
       ),
@@ -204,11 +211,11 @@ function parrot_splash_image_image_default_styles() {
   $styles['feature_splash_wide'] = array(
     'label' => 'Feature Splash Wide',
     'effects' => array(
-      68 => array(
+      31 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 1170,
-          'height' => 437,
+          'width' => 1440,
+          'height' => 575,
           'upscale' => 1,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,
@@ -216,11 +223,11 @@ function parrot_splash_image_image_default_styles() {
         ),
         'weight' => 0,
       ),
-      69 => array(
+      36 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1170,
-          'height' => 437,
+          'width' => 1440,
+          'height' => 575,
         ),
         'weight' => 1,
       ),

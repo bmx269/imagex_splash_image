@@ -29,8 +29,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'flexslider';
-  $handler->display->display_options['style_options']['optionset'] = 'clone_of_timeline';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_splash_target_id']['id'] = 'field_splash_target_id';
@@ -43,7 +42,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['fields']['id']['label'] = '';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
-  /* Field: Media Asset: Background Image */
+  /* Field: Field: Background Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -60,7 +59,7 @@ function parrot_splash_image_views_default_views() {
     'image_style' => 'flexslider_588x290',
     'image_link' => '',
   );
-  /* Field: Media Asset: Body */
+  /* Field: Media Asset: Testimonial Quote */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -103,8 +102,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'slideshow-pane ';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'flexslider';
-  $handler->display->display_options['style_options']['optionset'] = 'timeline';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -117,7 +115,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['fields']['id']['label'] = '';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
-  /* Field: Media Asset: Background Image */
+  /* Field: Field: Background Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -137,7 +135,7 @@ function parrot_splash_image_views_default_views() {
     'image_link' => '',
     'colorbox' => 'timeline',
   );
-  /* Field: Media Asset: Body */
+  /* Field: Media Asset: Testimonial Quote */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -181,8 +179,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel-pane ';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'flexslider';
-  $handler->display->display_options['style_options']['optionset'] = 'carousel';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -253,7 +250,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'testimonial-pane ';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Broken/missing handler */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_testimonial_reference_target_id']['id'] = 'field_testimonial_reference_target_id';
   $handler->display->display_options['relationships']['field_testimonial_reference_target_id']['table'] = 'field_data_field_testimonial_reference';
   $handler->display->display_options['relationships']['field_testimonial_reference_target_id']['field'] = 'field_testimonial_reference_target_id';
@@ -265,7 +262,7 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['fields']['id']['label'] = '';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['id']['element_label_colon'] = FALSE;
-  /* Field: Media Asset: Body */
+  /* Field: Media Asset: Testimonial Quote */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -339,7 +336,8 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'flexslider';
+  $handler->display->display_options['style_plugin'] = 'owlcarousel';
+  $handler->display->display_options['style_options']['instance'] = 'owlcarousel_settings_slideshow';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
@@ -451,7 +449,22 @@ function parrot_splash_image_views_default_views() {
     'image_style' => 'feature_splash_wide',
     'image_link' => '',
   );
-  /* Field: Media Asset: Body */
+  /* Field: Media Asset: Video Popup */
+  $handler->display->display_options['fields']['field_video_popup']['id'] = 'field_video_popup';
+  $handler->display->display_options['fields']['field_video_popup']['table'] = 'field_data_field_video_popup';
+  $handler->display->display_options['fields']['field_video_popup']['field'] = 'field_video_popup';
+  $handler->display->display_options['fields']['field_video_popup']['relationship'] = 'field_splash_target_id';
+  $handler->display->display_options['fields']['field_video_popup']['label'] = '';
+  $handler->display->display_options['fields']['field_video_popup']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_video_popup']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_popup']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_video_popup']['click_sort_column'] = 'video_url';
+  $handler->display->display_options['fields']['field_video_popup']['type'] = 'video_embed_field_thumbnail_colorbox';
+  $handler->display->display_options['fields']['field_video_popup']['settings'] = array(
+    'video_style' => 'normal',
+    'image_style' => 'video_play',
+  );
+  /* Field: Media Asset: Testimonial Quote */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
   $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
   $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
@@ -540,6 +553,15 @@ function parrot_splash_image_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 0,
   );
+  /* Field: Media Asset: Overlay */
+  $handler->display->display_options['fields']['field_overlay']['id'] = 'field_overlay';
+  $handler->display->display_options['fields']['field_overlay']['table'] = 'field_data_field_overlay';
+  $handler->display->display_options['fields']['field_overlay']['field'] = 'field_overlay';
+  $handler->display->display_options['fields']['field_overlay']['relationship'] = 'field_splash_target_id';
+  $handler->display->display_options['fields']['field_overlay']['label'] = '';
+  $handler->display->display_options['fields']['field_overlay']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_overlay']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_overlay']['type'] = 'list_key';
   /* Field: Slide Content */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -564,6 +586,16 @@ function parrot_splash_image_views_default_views() {
   $handler->display->display_options['pane_title'] = 'Splash Banner Pane';
   $handler->display->display_options['pane_category']['name'] = 'Slideshows';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 1,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
 
   /* Display: Splash Banner Block */
   $handler = $view->new_display('block', 'Splash Banner Block', 'block_1');
