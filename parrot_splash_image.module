@@ -122,7 +122,7 @@ function parrot_splash_image_field_display_alter(&$display, $context) {
   $entity = $context['entity'];
   if ($context['entity_type'] == 'bean' && $entity->type == 'carousel_block') {
     if ($display['module'] == 'owlcarousel_fields') {
-      // Pass to hook_process_flexslider
+      // Pass to hook_process
       $display['settings']['parent_entity'] = $entity;
       if (!empty($entity->data['instance'])) {
         $display['settings']['id'] = $entity->data['instance'];
